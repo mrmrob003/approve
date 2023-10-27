@@ -219,12 +219,12 @@ class APPrOVE(MessagePassing):
             layers, and normalize the edge weights.
             (default: :obj:`True`)
         check_node_type_conn (bool, optional): If set to :obj:`True`, the model
-            checks that every node type is the target of at least one edge 
+            checks that every node type is the target of at least one edge
             type.
             (default: :obj:`True`)
         **kwargs (optional): Additional arguments of
-            :class:`torch_geometric.nn.conv.MessagePassing`.
-    
+            :class:`torch_geometric.nn.conv.MessagePassing`
+
     Examples:
         .. code-block:: python
 
@@ -242,11 +242,11 @@ class APPrOVE(MessagePassing):
                               [0, 1]])
             hetero_data['paper', 'rev_publishes', 'venue'].edge_index = \
                 hetero_data['venue', 'publishes', 'paper'].edge_index[[1,0]]
-            
+
             # assign uniform scores to each node
             hetero_data['paper'].x = torch.full((3, 1), 1 / 3)
             hetero_data['venue'].x = torch.full((2, 1), 1 / 2)
-            
+
             # compute PageRank
             model = APPrOVE(K=30)
             model(hetero_data.x_dict, hetero_data.edge_index_dict)
