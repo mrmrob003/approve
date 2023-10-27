@@ -1,26 +1,28 @@
 from typing import Optional
+
+import torch
+from torch import Tensor
+from torch_geometric.nn.conv import MessagePassing
+from torch_geometric.typing import OptTensor
+
 from .typing import (
     EdgeTypeFloatDict,
     EdgeTypeFloatOptDict,
     EdgeTypeTensorDict,
     EdgeTypeTensorOptDict,
     NodeTypeFloatDict,
-    NodeTypeTensorDict,
     NodeTypeFloatOptDict,
     NodeTypeOptIntOptDict,
+    NodeTypeTensorDict,
 )
-from torch_geometric.typing import OptTensor
-import torch
-from torch import Tensor
-from torch_geometric.nn.conv import MessagePassing
 from .utils import (
-    pr_norm,
-    pr_norm_type,
-    hetero_pr_norm,
-    hetero_pr_norm_type,
+    _check_node_type_conn,
     gen_alpha_dict,
     gen_beta_dict,
-    _check_node_type_conn,
+    hetero_pr_norm,
+    hetero_pr_norm_type,
+    pr_norm,
+    pr_norm_type,
 )
 
 

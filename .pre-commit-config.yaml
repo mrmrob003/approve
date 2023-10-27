@@ -1,0 +1,43 @@
+repos:
+- repo: local
+  hooks:
+  - id: black
+    name: black
+    entry: black
+    language: system
+    types: [python]
+
+  - id: flake8
+    name: flake8
+    entry: flake8
+    language: system
+    types: [python]
+    args: ["--config", "flake8.ini"]
+
+  - id: mypy
+    name: mypy
+    entry: mypy
+    description: static type checker for Python
+    language: system
+    types: [python]
+    args: ["--config", "mypy.ini"]
+  
+  - id: isort
+    name: isort
+    entry: isort
+    description: import sorting for Python
+    language: system
+    types: [python]
+    args: ["--profile", "black"]
+
+  - id: jupyter-nb-clear-output
+    name: jupyter-nb-clear-output
+    entry: jupyter nbconvert --clear-output
+    files: \.ipynb$
+    language: system
+
+  - id: pytest
+    name: pytest
+    entry: pytest
+    types: [python]
+    language: system

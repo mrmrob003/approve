@@ -1,8 +1,19 @@
 from typing import Tuple, TypeAlias
+
+import numpy as np
+import torch
+from torch import Tensor
+from torch_geometric.typing import OptTensor
+from torch_geometric.utils import add_remaining_self_loops, scatter
+from torch_geometric.utils.num_nodes import (
+    maybe_num_nodes,
+    maybe_num_nodes_dict,
+)
+
 from .typing import (
-    EdgeTypeList,
     EdgeTypeFloatDict,
     EdgeTypeFloatOptDict,
+    EdgeTypeList,
     EdgeTypeTensorDict,
     EdgeTypeTensorOptDict,
     NodeTypeFloatDict,
@@ -14,19 +25,6 @@ from .typing import (
     NodeTypeOptIntOptDict,
     OptInt,
 )
-from torch_geometric.typing import OptTensor
-import torch
-from torch import Tensor
-from torch_geometric.utils import (
-    add_remaining_self_loops,
-    scatter,
-)
-from torch_geometric.utils.num_nodes import (
-    maybe_num_nodes,
-    maybe_num_nodes_dict,
-)
-import numpy as np
-
 
 pr_norm_type: TypeAlias = Tuple[Tensor, Tensor]
 bipartite_pr_norm_type: TypeAlias = Tuple[
@@ -498,32 +496,34 @@ def hetero_pr_norm(
     _num_nodes_dict: NodeTypeIntDict = {}
     _special_dict: NodeTypeOptIntDict = {}
     for edge_type, edge_index in edge_index_dict.items():
-        if edge_type[0] != edge_type[-1]:
-            num_nodes_s = num_nodes_dict.get(edge_type[0])  # type: ignore[union-attr]
-            num_nodes_t = num_nodes_dict.get(edge_type[-1])  # type: ignore[union-attr]
+        source, _, target = edge_type
+        if source != target:
+            num_nodes_s = num_nodes_dict.get(source)  # type: ignore
+            num_nodes_t = num_nodes_dict.get(target)  # type: ignore
             bipartite_norm: bipartite_pr_norm_type = bipartite_pr_norm(
                 edge_index,
                 edge_weight=edge_weight_dict.get(edge_type),
                 num_nodes_s=num_nodes_s,
                 num_nodes_t=num_nodes_t,
                 add_special_edges=add_special_edges,
-                special_s=special_dict.get(edge_type[0]),
-                special_t=special_dict.get(edge_type[-1]),
+                special_s=special_dict.get(source),
+                special_t=special_dict.get(target),
                 flow=flow,
             )
             edge_index_dict[edge_type] = bipartite_norm[0]
             edge_weight_dict[edge_type] = bipartite_norm[1]
-            _num_nodes_dict[edge_type[0]] = bipartite_norm[2]
-            _num_nodes_dict[edge_type[-1]] = bipartite_norm[3]
-            _special_dict[edge_type[0]] = bipartite_norm[4]
-            _special_dict[edge_type[-1]] = bipartite_norm[5]
+            _num_nodes_dict[source] = bipartite_norm[2]
+            _num_nodes_dict[target] = bipartite_norm[3]
+            _special_dict[source] = bipartite_norm[4]
+            _special_dict[target] = bipartite_norm[5]
     num_nodes_dict = _num_nodes_dict
     special_dict = _special_dict
 
     # Iterate over homogeneous graphs
     for edge_type, edge_index in edge_index_dict.items():
-        if edge_type[0] == edge_type[-1]:
-            num_nodes = num_nodes_dict.get(edge_type[0])  # type: ignore [union-attr]
+        source, _, target = edge_type
+        if source == target:
+            num_nodes = num_nodes_dict.get(source)  # type: ignore [union-attr]
             norm: pr_norm_type = pr_norm(
                 edge_index,
                 edge_weight=edge_weight_dict.get(edge_type),

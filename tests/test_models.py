@@ -1,9 +1,7 @@
 import pytest
 import torch
-from approve.models import (
-    APPr,
-    APPrOVE,
-)
+
+from approve.models import APPr, APPrOVE
 
 
 def test_APPr():

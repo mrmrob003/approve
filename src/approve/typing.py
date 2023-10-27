@@ -1,7 +1,6 @@
 from typing import Dict, List, Optional, TypeAlias
 
 from torch import Tensor
-
 from torch_geometric.typing import EdgeType, NodeType
 
 OptInt: TypeAlias = Optional[int]

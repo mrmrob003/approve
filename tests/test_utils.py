@@ -1,19 +1,19 @@
+import numpy as np
 import pytest
 import torch
+
 from approve.utils import (
-    missing_indices,
-    bipartite_maybe_num_nodes,
-    add_remaining_special_edges,
     _check_flow,
-    pr_norm,
+    _check_node_type_conn,
+    add_remaining_special_edges,
+    bipartite_maybe_num_nodes,
     bipartite_pr_norm,
-    hetero_pr_norm,
     gen_alpha_dict,
     gen_beta_dict,
-    _check_node_type_conn,
+    hetero_pr_norm,
+    missing_indices,
+    pr_norm,
 )
-import numpy as np
-
 
 # =============================
 # === Test: missing_indices ===
