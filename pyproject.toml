@@ -4,6 +4,13 @@ line-length = 79
 [tool.isort]
 line_length = 79
 
+[tool.mypy]
+files = [
+    "./tests/*.py", 
+    "./src/**/*.py",
+]
+ignore_missing_imports = true
+
 [tool.pytest.ini_options]
 addopts = "-v --cov=src --cov-report xml"
 pythonpath = "src"

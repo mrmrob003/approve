@@ -4,12 +4,14 @@ repos:
   - id: black
     name: black
     entry: black
+    description: autoformatter for Python
     language: system
     types: [python]
 
   - id: flake8
     name: flake8
     entry: flake8
+    description: PEP8 linter for Python
     language: system
     types: [python]
     args: ["--config", "flake8.ini"]
@@ -20,7 +22,6 @@ repos:
     description: static type checker for Python
     language: system
     types: [python]
-    args: ["--config", "mypy.ini"]
   
   - id: isort
     name: isort
@@ -33,13 +34,15 @@ repos:
   - id: jupyter-nb-clear-output
     name: jupyter-nb-clear-output
     entry: jupyter nbconvert --clear-output
+    description: clear output of Jupyter notebook cells
     files: \.ipynb$
     language: system
 
   - id: pytest
     name: pytest
     entry: pytest
-    types: [python]
+    description: tester for python
     language: system
+    types: [python]
     always_run: true
     pass_filenames: false
