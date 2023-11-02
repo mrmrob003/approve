@@ -1,8 +1,53 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "approve"
+authors = [
+    {name = "Robert Moerman", email = "robert.william.moerman@gmail.com"},
+]
+description = "A PyTorch Geometric implementation of APPrOVE: Approximate Personalized Propagation over Varied Edges."
+readme = "README.md"
+requires-python = ">=3.8,<3.12"
+keywords = [
+    "deep-learning",
+    "pytorch",
+    "geometric-deep-learning",
+    "graph-neural-networks",
+]
+license = {text = "MIT"}
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3 :: Only",
+]
+dependencies = [
+    "torch",
+    "torch_geometric",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov",
+]
+dev = [
+    "pre-commit",
+    "black",
+    "flake8",
+    "mypy",
+    "isort",
+    "jupyter",
+]
+
 [tool.black]
 line-length = 79
-
-[tool.isort]
-line_length = 79
 
 [tool.mypy]
 files = [
@@ -10,6 +55,9 @@ files = [
     "./src/**/*.py",
 ]
 ignore_missing_imports = true
+
+[tool.isort]
+line_length = 79
 
 [tool.pytest.ini_options]
 addopts = "-v --cov=src --cov-report xml"

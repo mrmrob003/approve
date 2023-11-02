@@ -37,12 +37,3 @@ repos:
     description: clear output of Jupyter notebook cells
     files: \.ipynb$
     language: system
-
-  - id: pytest
-    name: pytest
-    entry: pytest
-    description: tester for python
-    language: system
-    types: [python]
-    always_run: true
-    pass_filenames: false
