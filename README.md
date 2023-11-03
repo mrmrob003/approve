@@ -1,6 +1,6 @@
 # APPrOVE
 
-[![CI](https://github.com/mrmrob003/approve/actions/workflows/CI.yml/badge.svg)](https://github.com/mrmrob003/approve/actions/workflows/CI.yml) [![codecov](https://codecov.io/gh/mrmrob003/approve/graph/badge.svg?token=G1I2472OI1)](https://codecov.io/gh/mrmrob003/approve) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CI](https://github.com/mrmrob003/approve/actions/workflows/CI.yml/badge.svg)](https://github.com/mrmrob003/approve/actions/workflows/CI.yml) [![codecov](https://codecov.io/gh/mrmrob003/approve/graph/badge.svg?token=79PPMLYSBT)](https://codecov.io/gh/mrmrob003/approve) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 😎 Summary
 
