@@ -26,11 +26,11 @@ from .utils import (
 )
 
 
-class APPr(MessagePassing):
+class APPR(MessagePassing):
     r"""The approximate personalized PageRank model for homogeneous graphs,
     adapted from the `APPNP model <https://pytorch-geometric.readthedocs.io/en/
     latest/generated/torch_geometric.nn.conv.APPNP.html>`_, as detailed in the
-    paper `"APPrOVE: Approximate Personalized Propagation Over Varied Edges"
+    paper `"APPROVE: Approximate Personalized Propagation Over Varied Edges"
     <https://arxiv.org/abs/23xx.xxxxx>`_:
 
     .. math::
@@ -166,9 +166,9 @@ class APPr(MessagePassing):
         return f"{self.__class__.__name__}(K={self.K}, alpha={self.alpha})"
 
 
-class APPrOVE(MessagePassing):
+class HeteroAPPR(MessagePassing):
     r"""The approximate personalized PageRank model for heterogeneous graphs,
-    as detailed in the paper `"APPrOVE: Approximate Personalized Propagation
+    as detailed in the paper `"APPROVE: Approximate Personalized Propagation
     Over Varied Edges" <https://arxiv.org/abs/23xx.xxxxx>`_:
 
     .. math::

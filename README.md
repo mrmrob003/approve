@@ -4,11 +4,11 @@
 
 ## 😎 Summary
 
-A [PyG](https://pytorch-geometric.readthedocs.io/en/latest/index.html) (PyTorch Geometric) implementation of the propagation model for heterogeneous graphs detailed in ["APPrOVE: Approximate Personalized Propagation over Varied Edges"](https://arxiv.org/abs/23xx.xxxxx). 
+A [PyG](https://pytorch-geometric.readthedocs.io/en/latest/index.html) (PyTorch Geometric) implementation of the propagation model for heterogeneous graphs detailed in ["APPROVE: Approximate Personalized Propagation over Varied Edges"](https://arxiv.org/abs/23xx.xxxxx). 
 
 ## 🧠 Theory
 
-For more information about personalized PageRank and its extension to heterogeneous graphs, read ["APPrOVE: Approximate Personalized Propagation Over Varied Edges"](https://arxiv.org/abs/23xx.xxxxx).
+For more information about personalized PageRank and its extension to heterogeneous graphs, read ["APPROVE: Approximate Personalized Propagation Over Varied Edges"](https://arxiv.org/abs/23xx.xxxxx).
 
 ## 🚀 Installation
 
