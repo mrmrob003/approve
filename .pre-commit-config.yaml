@@ -33,7 +33,7 @@ repos:
 
   - id: jupyter-nb-clear-output
     name: jupyter-nb-clear-output
-    entry: jupyter nbconvert --clear-output
+    entry: jupyter nbconvert --clear-output --inplace
     description: clear output of Jupyter notebook cells
     files: \.ipynb$
     language: system
