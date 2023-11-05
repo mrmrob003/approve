@@ -1,4 +1,4 @@
-name: CI
+name: Tests
 
 on: 
   push:
@@ -9,14 +9,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11"]
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       
-    - name: Setup Python 3.11
+    - name: Setup Python ${{ matrix.python-version }}
       uses: actions/setup-python@v4
       with:
-        python-version: "3.11"
+        python-version: ${{ matrix.python-version }}
 
     - name: Install dependencies
       run: |
@@ -25,10 +29,3 @@ jobs:
     - name: Run pytest
       run: |
         pytest
-
-    - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v3
-      env:
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      with:
-        file: coverage.xml
