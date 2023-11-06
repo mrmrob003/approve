@@ -1,10 +1,10 @@
-# APPrOVE
+# APPROVE
 
 [![Tests](https://github.com/mrmrob003/approve/actions/workflows/tests.yml/badge.svg)](https://github.com/mrmrob003/approve/actions/workflows/test.yml) [![codecov](https://codecov.io/gh/mrmrob003/approve/graph/badge.svg?token=79PPMLYSBT)](https://codecov.io/gh/mrmrob003/approve) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 😎 Summary
 
-A [PyG](https://pytorch-geometric.readthedocs.io/en/latest/index.html) (PyTorch Geometric) implementation of the propagation model for heterogeneous graphs detailed in ["APPROVE: Approximate Personalized Propagation over Varied Edges"](https://arxiv.org/abs/23xx.xxxxx). 
+A [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/en/latest/index.html) implementation of ["APPROVE: Approximate Personalized Propagation Over Varied Edges"](https://arxiv.org/abs/23xx.xxxxx). APPROVE extends the well-known personalized PageRank algorithm to heterogeneous graphs (graphs with varied edges).
 
 ## 🧠 Theory
 
@@ -47,7 +47,7 @@ hetero_data['venue', 'publishes', 'paper'].edge_index = torch.tensor(
      [0, 1]]
 )
 hetero_data['paper', 'rev_publishes', 'venue'].edge_index = \
-    hetero_data['venue', 'publishes', 'paper'].edge_index[[1,0]]
+    hetero_data['venue', 'publishes', 'paper'].edge_index[[1, 0]]
 hetero_data['paper'].num_nodes = 3
 hetero_data['venue'].num_nodes = 2
 ```

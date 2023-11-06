@@ -10,6 +10,6 @@ authors:
     orcid: 'https://orcid.org/0000-0002-6380-9232'
 repository-code: 'https://github.com/mrmrob003/approve'
 abstract: >-
-  A PyTorch Geometric implementation of APPrOVE: Approximate Personalized Propagation Over Varied Edges. APPROVE extends the well-known personalized PageRank algorithm to heterogeneous graphs (graphs with varied edges).
+  A PyTorch Geometric implementation of APPROVE: Approximate Personalized Propagation Over Varied Edges. APPROVE extends the well-known personalized PageRank algorithm to heterogeneous graphs (graphs with varied edges).
 license: MIT
 version: 0.1.0

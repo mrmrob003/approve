@@ -7,7 +7,7 @@ name = "approve"
 authors = [
     {name = "Robert Moerman", email = "robert.william.moerman@gmail.com"},
 ]
-description = "A PyTorch Geometric implementation of APPrOVE: Approximate Personalized Propagation Over Varied Edges. APPROVE extends the well-known personalized PageRank algorithm to heterogeneous graphs (graphs with varied edges)."
+description = "A PyTorch Geometric implementation of APPROVE: Approximate Personalized Propagation Over Varied Edges. APPROVE extends the well-known personalized PageRank algorithm to heterogeneous graphs (graphs with varied edges)."
 readme = "README.md"
 requires-python = ">=3.8,<3.12"
 keywords = [
