@@ -29,8 +29,12 @@ $ pip install git+https://github.com/mrmrob003/approve.git
 To demonstrate our heterogeneous personalized PageRank algorithm, consider the following toy-model of a citation network consisting of three papers and two venues.
 
 <p align="center">
-  <img src="examples/citation_network.png">
+  <img src="figures/citation_network.png">
 </p>
+
+Paper `0` is cited by the other two papers and published by venue `0`, while paper `1` is cited by paper `2` and published by venue `1`.
+
+We can represent this citation network as a `torch.data.HeteroData` object as follows:
 
 ```python
 hetero_data = HeteroData()
@@ -48,22 +52,22 @@ hetero_data['paper'].num_nodes = 3
 hetero_data['venue'].num_nodes = 2
 ```
 
-Paper `0` is cited by the other two papers and published by venue `0`, while paper `1` is cited by paper `2` and published by venue `1`.
+To compute the type-sensitive PageRank score of each node, we uniformly assign an initial fraction (of the total score for a given node type) to all nodes of a given type. For example, since there are three papers and two venues, we assign each paper a third of the total `'paper'` score and each venue half of the total `'venue'` score. 
 
-To compute the type-level PageRank score of each node, we initially assign uniform scores to all nodes of a given type. Since there are three papers and two venues, we assign each paper a third of the total `'paper'` score and each venue half of the total `'venue'` score.
+We can store these initial scores as follows:
 
 ```python
 hetero_data['paper'].x = torch.full((3, 1), 1 / 3)
 hetero_data['venue'].x = torch.full((2, 1), 1 / 2)
 ```
 
-Furthermore, we need to add self-loops to `'paper'` nodes, and a special edge from paper `2` (which is unpublished) to a special `'venue'` node. The addition of the self-loops and special edge prevents the scores for each node type from leaking.
+In addition, we need to add self-loops to `'paper'` nodes, and a special edge from paper `2` (which is as-yet-unpublished) to a special `'venue'` node, as depicted below.
 
 <p align="center">
-  <img src="examples/citation_network_updated.png">
+  <img src="figures/citation_network_updated.png">
 </p>
 
-The `approve.models.HeteroAPPR` model takes care of all these considerations and can be used to compute the score of each node as follows.
+The addition of the self-loops, the special edge and the special node prevents the total score for each node type from leaking. The `approve.models.HeteroAPPR` model takes care of all these considerations. The model can be easily used to compute the type-sensitive PageRank score of each node as follows:
 
 ```python
 model = HeteroAPPR(K=30)
