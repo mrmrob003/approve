@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+title: APPROVE
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Robert
+    family-names: Moerman
+    orcid: 'https://orcid.org/0000-0002-6380-9232'
+repository-code: 'https://github.com/mrmrob003/approve'
+abstract: >-
+  A PyTorch Geometric implementation of APPrOVE: Approximate Personalized Propagation Over Varied Edges. APPROVE extends the well-known personalized PageRank algorithm to heterogeneous graphs (graphs with varied edges).
+license: MIT
+version: 0.1.0
