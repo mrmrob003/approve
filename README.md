@@ -1,14 +1,14 @@
-# APPROVE
+# APPrOVE: Approximate Personalized Propagation Over Varied Edges
 
 [![Tests](https://github.com/mrmrob003/approve/actions/workflows/tests.yml/badge.svg)](https://github.com/mrmrob003/approve/actions/workflows/test.yml) [![codecov](https://codecov.io/gh/mrmrob003/approve/graph/badge.svg?token=79PPMLYSBT)](https://codecov.io/gh/mrmrob003/approve) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 😎 Summary
 
-A [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/en/latest/index.html) implementation of ["APPROVE: Approximate Personalized Propagation Over Varied Edges"](https://arxiv.org/abs/23xx.xxxxx). APPROVE extends the well-known personalized PageRank algorithm to heterogeneous graphs (graphs with varied edges).
+A [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/en/latest/index.html) implementation of ["APPrOVE: Approximate Personalized Propagation Over Varied Edges"](https://arxiv.org/abs/23xx.xxxxx). APPrOVE extends the well-known personalized PageRank algorithm to heterogeneous graphs (graphs with varied edges).
 
 ## 🧠 Theory
 
-For more information about personalized PageRank and its extension to heterogeneous graphs, read ["APPROVE: Approximate Personalized Propagation Over Varied Edges"](https://arxiv.org/abs/23xx.xxxxx).
+For more information about personalized PageRank and its extension to heterogeneous graphs, read ["APPrOVE: Approximate Personalized Propagation Over Varied Edges"](https://arxiv.org/abs/23xx.xxxxx).
 
 ## 🚀 Installation
 
@@ -67,10 +67,10 @@ In addition, we need to add self-loops to `'paper'` nodes, and a special edge fr
   <img src="figures/citation_network_updated.png">
 </p>
 
-The addition of the self-loops, the special edge and the special node prevents the total score for each node type from leaking. The `approve.models.HeteroAPPR` model takes care of all these considerations. The model can be easily used to compute the type-sensitive PageRank score of each node as follows:
+The addition of the self-loops, the special edge and the special node prevents the total score for each node type from leaking. The `approve.models.HeteroAPPr` model takes care of all these considerations. The model can be easily used to compute the type-sensitive PageRank score of each node as follows:
 
 ```python
-model = HeteroAPPR(K=30)
+model = HeteroAPPr(K=30)
 output = model(
     hetero_data.x_dict, 
     edge_index_dict=hetero_data.edge_index_dict,
