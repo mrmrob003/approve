@@ -26,11 +26,11 @@ from .utils import (
 )
 
 
-class APPR(MessagePassing):
+class APPr(MessagePassing):
     r"""The approximate personalized PageRank model for homogeneous graphs,
     adapted from the `APPNP model <https://pytorch-geometric.readthedocs.io/en/
     latest/generated/torch_geometric.nn.conv.APPNP.html>`_, as detailed in the
-    paper `"APPROVE: Approximate Personalized Propagation Over Varied Edges"
+    paper `"APPrOVE: Approximate Personalized Propagation Over Varied Edges"
     <https://arxiv.org/abs/23xx.xxxxx>`_:
 
     .. math::
@@ -166,9 +166,9 @@ class APPR(MessagePassing):
         return f"{self.__class__.__name__}(K={self.K}, alpha={self.alpha})"
 
 
-class HeteroAPPR(MessagePassing):
+class HeteroAPPr(MessagePassing):
     r"""The approximate personalized PageRank model for heterogeneous graphs,
-    as detailed in the paper `"APPROVE: Approximate Personalized Propagation
+    as detailed in the paper `"APPrOVE: Approximate Personalized Propagation
     Over Varied Edges" <https://arxiv.org/abs/23xx.xxxxx>`_:
 
     .. math::
@@ -228,7 +228,7 @@ class HeteroAPPR(MessagePassing):
     Examples:
         .. code-block:: python
 
-            from approve.models import APPrOVE
+            from approve.models import HeteroAPPr
             from torch import tensor
             from torch_geometric.data import HeteroData
 
@@ -248,7 +248,7 @@ class HeteroAPPR(MessagePassing):
             hetero_data['venue'].x = torch.full((2, 1), 1 / 2)
 
             # compute PageRank
-            model = APPrOVE(K=30)
+            model = HeteroAPPr(K=30)
             model(hetero_data.x_dict, hetero_data.edge_index_dict)
             >>> {'paper': tensor([[0.4605],
                          [0.3289],

@@ -1,15 +1,15 @@
 import pytest
 import torch
 
-from approve.models import APPR, HeteroAPPR
+from approve.models import APPr, HeteroAPPr
 
 
-def test_APPR():
+def test_APPr():
     x = torch.tensor([[0.5], [0.5]])
     edge_index = torch.tensor([[0], [1]])
 
-    model = APPR(K=30, alpha=0.5)
-    assert str(model) == "APPR(K=30, alpha=0.5)"
+    model = APPr(K=30, alpha=0.5)
+    assert str(model) == "APPr(K=30, alpha=0.5)"
 
     def check_returned():
         returned = model(x, edge_index)
@@ -37,14 +37,14 @@ def test_APPR():
         ),
     ],
 )
-def test_HeteroAPPR(ex_hetero_data, kwargs):
+def test_HeteroAPPr(ex_hetero_data, kwargs):
     x_dict = {}
     for node_type, num_nodes in ex_hetero_data.num_nodes_dict.items():
         x_dict[node_type] = torch.ones((num_nodes, 1)) / num_nodes
     edge_index_dict = ex_hetero_data.edge_index_dict
 
-    model = HeteroAPPR(K=30)
-    assert str(model) == "HeteroAPPR(K=30)"
+    model = HeteroAPPr(K=30)
+    assert str(model) == "HeteroAPPr(K=30)"
 
     def check_returned():
         returned = model(x_dict, edge_index_dict, **kwargs)
