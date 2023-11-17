@@ -35,10 +35,6 @@ readme = {file = ["README.md"], content-type = "text/markdown"}
 version = {attr = "approve.__version__"}
 
 [project.optional-dependencies]
-tests = [
-    "pytest",
-    "pytest-cov",
-]
 dev = [
     "pre-commit",
     "black",
@@ -46,6 +42,8 @@ dev = [
     "mypy",
     "isort",
     "jupyter",
+    "pytest",
+    "pytest-cov",
 ]
 docs = [
     "sphinx-rtd-theme",
