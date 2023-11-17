@@ -4,11 +4,7 @@
 
 ## 😎 Summary
 
-A [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/en/latest/index.html) implementation of ["APPrOVE: Approximate Personalized Propagation Over Varied Edges"](https://arxiv.org/abs/23xx.xxxxx). APPrOVE extends the well-known personalized PageRank algorithm to heterogeneous graphs (graphs with varied edges).
-
-## 🧠 Theory
-
-For more information about personalized PageRank and its extension to heterogeneous graphs, read ["APPrOVE: Approximate Personalized Propagation Over Varied Edges"](https://arxiv.org/abs/23xx.xxxxx).
+A [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/en/latest/index.html) implementation of _APPrOVE: Approximate Personalized Propagation Over Varied Edges_. APPrOVE extends the well-known personalized PageRank algorithm to heterogeneous graphs (graphs with varied edges) and furnishes a message-passing layer that generalises the propagation scheme of ["Predict then Propagate: Graph Neural Networks meet Personalized PageRank"](https://arxiv.org/abs/1810.05997).
 
 ## 🚀 Installation
 
