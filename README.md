@@ -1,7 +1,11 @@
 # APPrOVE: Approximate Personalized Propagation Over Varied Edges
 
+[![PyPI version](https://img.shields.io/pypi/v/approve.svg)](https://pypi.org/project/approve/) 
 [![Documentation](https://readthedocs.org/projects/approve/badge/?version=latest)](https://approve.readthedocs.io/en/latest/?badge=latest)
- [![Tests](https://github.com/mrmrob003/approve/actions/workflows/tests.yml/badge.svg)](https://github.com/mrmrob003/approve/actions/workflows/test.yml) [![codecov](https://codecov.io/gh/mrmrob003/approve/graph/badge.svg?token=79PPMLYSBT)](https://codecov.io/gh/mrmrob003/approve) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Tests](https://github.com/mrmrob003/approve/actions/workflows/tests.yml/badge.svg)](https://github.com/mrmrob003/approve/actions/workflows/test.yml) 
+[![codecov](https://codecov.io/gh/mrmrob003/approve/graph/badge.svg?token=79PPMLYSBT)](https://codecov.io/gh/mrmrob003/approve) 
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 😎 Summary
 
@@ -26,7 +30,7 @@ $ pip install git+https://github.com/mrmrob003/approve.git
 To demonstrate our heterogeneous personalized PageRank algorithm, consider the following toy-model of a citation network consisting of three papers and two venues.
 
 <p align="center">
-  <img src="figures/citation_network.png">
+  <img src="https://raw.githubusercontent.com/mrmrob003/approve/main/figures/citation_network.png">
 </p>
 
 Paper `0` is cited by the other two papers and published by venue `0`, while paper `1` is cited by paper `2` and published by venue `1`.
@@ -61,7 +65,7 @@ hetero_data['venue'].x = torch.full((2, 1), 1 / 2)
 In addition, we need to add self-loops to `'paper'` nodes, and a special edge from paper `2` (which is as-yet-unpublished) to a special `'venue'` node, as depicted below.
 
 <p align="center">
-  <img src="figures/citation_network_updated.png">
+  <img src="https://raw.githubusercontent.com/mrmrob003/approve/main/figures/citation_network_updated.png">
 </p>
 
 The addition of the self-loops, the special edge and the special node prevents the total score for each node type from leaking. The `approve.models.HeteroAPPr` model takes care of all these considerations. The model can be easily used to compute the type-sensitive PageRank score of each node as follows:
