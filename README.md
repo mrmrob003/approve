@@ -1,6 +1,7 @@
 # APPrOVE: Approximate Personalized Propagation Over Varied Edges
 
-[![Tests](https://github.com/mrmrob003/approve/actions/workflows/tests.yml/badge.svg)](https://github.com/mrmrob003/approve/actions/workflows/test.yml) [![codecov](https://codecov.io/gh/mrmrob003/approve/graph/badge.svg?token=79PPMLYSBT)](https://codecov.io/gh/mrmrob003/approve) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Documentation](https://readthedocs.org/projects/approve/badge/?version=latest)](https://approve.readthedocs.io/en/latest/?badge=latest)
+ [![Tests](https://github.com/mrmrob003/approve/actions/workflows/tests.yml/badge.svg)](https://github.com/mrmrob003/approve/actions/workflows/test.yml) [![codecov](https://codecov.io/gh/mrmrob003/approve/graph/badge.svg?token=79PPMLYSBT)](https://codecov.io/gh/mrmrob003/approve) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 😎 Summary
 
