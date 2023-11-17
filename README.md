@@ -1,6 +1,5 @@
 # APPrOVE: Approximate Personalized Propagation Over Varied Edges
 
-[![PyPI version](https://img.shields.io/pypi/v/approve.svg)](https://pypi.org/project/approve/) 
 [![Documentation](https://readthedocs.org/projects/approve/badge/?version=latest)](https://approve.readthedocs.io/en/latest/?badge=latest)
 [![Tests](https://github.com/mrmrob003/approve/actions/workflows/tests.yml/badge.svg)](https://github.com/mrmrob003/approve/actions/workflows/test.yml) 
 [![codecov](https://codecov.io/gh/mrmrob003/approve/graph/badge.svg?token=79PPMLYSBT)](https://codecov.io/gh/mrmrob003/approve) 
