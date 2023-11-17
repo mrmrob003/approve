@@ -1,39 +1,35 @@
 repos:
 - repo: local
   hooks:
-  - id: black
-    name: black
-    entry: black
-    description: autoformatter for Python
+
+  - id: typecheck
+    name: (mypy) check for type errors
+    entry: mypy
     language: system
     types: [python]
 
-  - id: flake8
-    name: flake8
+  - id: format
+    name: (black) format source code
+    entry: black
+    language: system
+    types: [python]
+
+  - id: lint
+    name: (flake8) lint source code
     entry: flake8
-    description: PEP8 linter for Python
     language: system
     types: [python]
     args: ["--config", "flake8.ini"]
-
-  - id: mypy
-    name: mypy
-    entry: mypy
-    description: static type checker for Python
-    language: system
-    types: [python]
   
-  - id: isort
-    name: isort
-    entry: isort
-    description: import sorting for Python
+  - id: imports-sorted
+    name: (isort) sort imports consistently
+    entry: isort --profile black --overwrite-in-place
     language: system
     types: [python]
-    args: ["--profile", "black"]
 
   - id: jupyter-nb-clear-output
-    name: jupyter-nb-clear-output
+    name: (nbconvert) lint jupyter notebooks and remove output
     entry: jupyter nbconvert --clear-output --inplace
-    description: clear output of Jupyter notebook cells
-    files: \.ipynb$
     language: system
+    stages: [commit]
+    files: \.ipynb$
